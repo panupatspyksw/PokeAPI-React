@@ -3,7 +3,7 @@ const loadPoke = async () => {
     const response = await fetch('https://pokeapi.co/api/v2/pokemon/')
     let { prev, next, results } = await response.json()
     results = await results.map((e) => {
-      var imgId = e.url.split('/').at(-2)
+      var imgId = e.url.split('/')[6]
       return {
         ...e,
         img: `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${imgId}.svg`,
